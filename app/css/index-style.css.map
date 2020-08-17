@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,CACA;EACI,MAAM,EAAC,CAAC;EACR,OAAO,EAAC,CAAC",
+"sources": ["index-input.scss"],
+"names": [],
+"file": "index-style.css"
+}
