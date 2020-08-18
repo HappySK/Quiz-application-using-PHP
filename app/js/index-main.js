@@ -1,5 +1,8 @@
 $(document).ready(function(){
     flag=true;
+    
+    // Checking whether the password matches the confirm password
+
     $('#signup-cpassword').keyup(function(){
         if($('#signup-cpassword').val()==$('#signup-password').val())
         {
@@ -12,10 +15,13 @@ $(document).ready(function(){
             flag=false;
         }
     });
+
+    // Action to be performed while clicking on register button
+
     $('#reg-submit').click(function(){
-        if(isEmpty('reg')&&flag)
+        if(isNotEmpty('reg')&&flag)
         {
-            window.location.href="../app/welcome.html";
+            sendData();
         }
         else
         {
@@ -30,9 +36,13 @@ $(document).ready(function(){
         }
 
     });
+
+    // Action to be performed while clicking to login button*
+
     $('#login-submit').click(function(){
-        if(isEmpty('log'))
+        if(isNotEmpty('log'))
         {
+            // Redirected to welcome.html if all cases are evaluated to true
             window.location.href="../app/welcome.html";
         }
         else
@@ -40,7 +50,10 @@ $(document).ready(function(){
             $('.feedback:even').html('<b>Please Enter your Email and Password</b>');
         }
     });
-    function isEmpty(modal)
+
+    // Function that checks emptiness of fields
+
+    function isNotEmpty(modal)
     {
         isNotEmpty=true;
         if(modal=='reg')
@@ -62,5 +75,39 @@ $(document).ready(function(){
             });
         }
         return isNotEmpty;
+    }
+
+    // The user data is retrieved using DOM and sent to the welcome.html using asynchronously
+
+    function sendData()
+    {
+        var user={
+            fname:$('#signup-firstname').val(),
+            lname:$('#signup-lastname').val(),
+            email:$('#signup-email').val(),
+            pwd:$('#signup-cpassword').val()
+        };
+        var user_data=JSON.stringify(user);
+        $.ajax({
+            url:'../app/index-validate.php',
+            data:{action:'reg',user:user_data},
+            type:'POST',
+            dataType:'JSON',
+            success:function(data)
+                    {
+                        if(data.result=='failure')
+                        {
+                            $('.feedback:odd').html('<b>'+data.message+'</b>');
+                        }
+                        else if(data.result=='success')
+                        {
+                            sessionStorage.setItem('id',data.id);
+                            sessionStorage.setItem('firstname',data.firstname);
+                            sessionStorage.setItem('lastname',data.lastname);
+                            window.location.href="../app/welcome.html";
+                        }
+                    }
+                    
+        });
     }
 });
