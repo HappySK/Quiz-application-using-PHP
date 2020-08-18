@@ -1,5 +1,98 @@
+@font-face {
+  font-family: poppins;
+  src: url("../include/fonts/Poppins/Poppins-Regular.ttf"); }
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: poppins; }
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 10fr 1fr; }
+  body header {
+    display: flex;
+    justify-content: center; }
+  body main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: seagreen; }
+    body main .container {
+      width: 60%; }
+      body main .container #tabs {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: white;
+        border-radius: 10px; }
+        body main .container #tabs label {
+          cursor: pointer;
+          color: seagreen;
+          transition-duration: 0.2s; }
+        body main .container #tabs label:active {
+          border-radius: 10px;
+          background-color: seagreen;
+          color: white;
+          font-weight: bold; }
+      body main .container #tab-contents {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white; }
+        body main .container #tab-contents #signin, body main .container #tab-contents #signup {
+          display: none;
+          transition-property: display; }
+        body main .container #tab-contents #signin-btn:checked ~ #signin, body main .container #tab-contents #signup-btn:checked ~ #signup {
+          display: block;
+          transition-duration: 0.3s; }
+        body main .container #tab-contents .form-labels {
+          display: flex;
+          margin: 10% 5%; }
+          body main .container #tab-contents .form-labels label {
+            position: absolute;
+            transition-duration: 0.2s; }
+          body main .container #tab-contents .form-labels input {
+            background-color: transparent;
+            outline: none;
+            border: none;
+            color: white;
+            border-bottom: 1px solid white; }
+          body main .container #tab-contents .form-labels input:focus ~ label, body main .container #tab-contents .form-labels input:valid ~ label {
+            transform: translateY(-20px); }
+        body main .container #tab-contents .feedback {
+          margin-bottom: 4%;
+          font-size: 12px;
+          text-align: center; }
+        body main .container #tab-contents .form-footer {
+          display: flex;
+          justify-content: center; }
+          body main .container #tab-contents .form-footer input {
+            margin: 0 3%;
+            color: white;
+            padding: 2%;
+            border: 1px solid white;
+            transition-duration: 0.3s;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer; }
+            body main .container #tab-contents .form-footer input:hover {
+              border-radius: 20px;
+              color: seagreen;
+              font-weight: bold;
+              background-color: white; }
+  body footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    body footer div img {
+      vertical-align: middle; }
+    body footer div a {
+      text-decoration: none;
+      color: black; }
+
+@media screen and (max-width: 450px) {
+  footer {
+    flex-direction: column; } }
 
 /*# sourceMappingURL=index-style.css.map */

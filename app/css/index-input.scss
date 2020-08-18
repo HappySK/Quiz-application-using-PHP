@@ -1,5 +1,150 @@
+@font-face
+{
+    font-family: poppins;
+    src:url('../include/fonts/Poppins/Poppins-Regular.ttf');
+}
 *
 {
     margin:0;
     padding:0;
+    font-family: poppins;
+}
+@mixin buttons {
+    padding:2%;
+    border:1px solid white;
+    transition-duration:0.3s;
+    background-color:transparent;
+    outline:none;
+    cursor: pointer;
+    &:hover
+    {
+        border-radius:20px;
+        color:seagreen;
+        font-weight:bold;
+        background-color: white;
+    }
+}
+body
+{
+    height:100vh;
+    display:grid;
+    grid-template-rows: 1fr 10fr 1fr;
+    header
+    {
+        display:flex;
+        justify-content: center;
+    }
+    main
+    {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: seagreen;
+        .container
+        {
+            width:60%;
+            #tabs
+            {
+                display:flex;
+                justify-content: space-evenly;
+                background-color: white;
+                border-radius:10px;
+                label
+                {
+                    cursor: pointer;
+                    color:seagreen;
+                    transition-duration: 0.2s;
+                }
+                label:active
+                {
+                    border-radius:10px;
+                    background-color: seagreen;
+                    color:white;
+                    font-weight: bold;
+                }
+            }
+            #tab-contents
+            {
+                display:flex;
+                flex-direction: column;
+                align-items:center;
+                color:white;
+                #signin,#signup
+                {
+                    display:none;
+                    transition-property: display;
+                }
+                #signin-btn:checked ~ #signin, #signup-btn:checked ~ #signup
+                {
+                    display:block;
+                    transition-duration: 0.3s;
+                }
+                .form-labels
+                {
+                    display:flex;
+                    margin:10% 5%;
+                    label
+                    {
+                        position: absolute;
+                        transition-duration: 0.2s;
+                    }
+                    input
+                    {
+                        background-color: transparent;
+                        outline:none;
+                        border:none;
+                        color:white;
+                        border-bottom:1px solid white;
+                    }
+                    input:focus ~ label,input:valid ~ label
+                    {
+                        transform:translateY(-20px);
+                    }
+                }
+                .feedback
+                {
+                    margin-bottom:4%;
+                    font-size: 12px;
+                    text-align:center;
+                }
+                .form-footer
+                {
+                    display:flex;
+                    justify-content: center;
+                    input
+                    {
+                        margin:0 3%;
+                        color:white;
+                        @include buttons();
+                    }
+                }
+            }
+        }
+    }
+    footer
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        div
+        {
+            img
+            {
+                vertical-align: middle;
+            }
+            a
+            {
+                text-decoration: none;
+                color:black;
+            }
+        }
+    }
+}
+@media screen and (max-width:450px)
+{
+    footer
+    {
+        flex-direction: column;
+    }
 }

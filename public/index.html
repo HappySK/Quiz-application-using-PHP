@@ -4,8 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUIZ | Login</title>
+    <link rel="stylesheet" href="../app/css/index-style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Welcome to the QUIZ</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div id="tabs">
+                <label for="signin-btn">Sign In</label>
+                <label for="signup-btn">Sign Up</label>
+            </div>
+            <div id="tab-contents">
+                <input type="radio" name="tabs" id="signin-btn" hidden checked>
+                <form id="signin">
+                    <div class="form-labels">
+                        <input type="email" autocomplete="off" id="login-email"required>
+                        <label for="login-email">Email</label>
+                    </div>
+                    <div class="form-labels">
+                        <input type="password" autocomplete="off" id="login-password"required>
+                        <label for="login-password">Password</label>
+                    </div>
+                    <div class="feedback">
+                        
+                    </div>
+                    <div class="form-footer">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Cancel">
+                    </div>
+                </form>
+                <input type="radio" name="tabs" id="signup-btn" hidden>
+                <form id="signup">
+                    <div class="form-labels">
+                        <input type="text" autocomplete="off" id="signup-firstname"required>
+                        <label for="signup-firstname">Firstname</label>
+                    </div>
+                    <div class="form-labels">
+                        <input type="text" autocomplete="off" id="signup-lastname"required>
+                        <label for="signup-lastname">Lastname</label>
+                    </div>
+                    <div class="form-labels">
+                        <input type="email" autocomplete="off" id="signup-email"required>
+                        <label for="signup-email">Email</label>
+                    </div>
+                    <div class="form-labels">
+                        <input type="password" autocomplete="off" id="signup-password"required>
+                        <label for="signup-password">Password</label>
+                    </div>
+                    <div class="form-labels">
+                        <input type="password" autocomplete="off" id="signup-cpassword"required>
+                        <label for="signup-cpassword">Confirm Password</label>
+                    </div>
+                    <div class="feedback">
+                        
+                    </div>
+                    <div class="form-footer">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Cancel">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <img src="../app/include/icons/instagram.svg" alt="Instagram-icon" width="20px" height="20px">
+            <a href="www.instagram.com/shravann_kumar">www.instagram.com/shravann_kumar</a>
+        </div>
+        <div>
+            <img src="../app/include/icons/facebook.svg" alt="Facebook-icon" width="20px" height="20px">
+            <a href="www.instagram.com/shravann_kumar">www.facebook.com/shravan_kumar</a>
+        </div>
+        <div>
+            <img src="../app/include/icons/twitter.svg" alt="Twitter-icon" width="20px" height="20px">
+            <a href="www.instagram.com/shravann_kumar">www.twitter.com/shravann_nerdy</a>
+        </div>
+    </footer>
 </body>
 </html>
