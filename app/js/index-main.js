@@ -21,7 +21,7 @@ $(document).ready(function(){
     $('#reg-submit').click(function(){
         if(isNotEmpty('reg')&&flag)
         {
-            sendData();
+            sendData('reg');
         }
         else
         {
@@ -43,7 +43,7 @@ $(document).ready(function(){
         if(isNotEmpty('log'))
         {
             // Redirected to welcome.html if all cases are evaluated to true
-            window.location.href="../app/welcome.html";
+            sendData('log');
         }
         else
         {
@@ -79,25 +79,42 @@ $(document).ready(function(){
 
     // The user data is retrieved using DOM and sent to the welcome.html using asynchronously
 
-    function sendData()
+    function sendData(action)
     {
-        var user={
-            fname:$('#signup-firstname').val(),
-            lname:$('#signup-lastname').val(),
-            email:$('#signup-email').val(),
-            pwd:$('#signup-cpassword').val()
-        };
+        if(action=='reg')
+        {
+            var user={
+                fname:$('#signup-firstname').val(),
+                lname:$('#signup-lastname').val(),
+                email:$('#signup-email').val(),
+                pwd:$('#signup-cpassword').val()
+            };
+        }
+        else if(action=='log')
+        {
+            var user={
+                email:$('#login-email').val(),
+                pwd:$('#login-password').val()
+            };
+        }
         var user_data=JSON.stringify(user);
         $.ajax({
             url:'../app/index-validate.php',
-            data:{action:'reg',user:user_data},
+            data:{action:action,user:user_data},
             type:'POST',
             dataType:'JSON',
             success:function(data)
                     {
                         if(data.result=='failure')
                         {
-                            $('.feedback:odd').html('<b>'+data.message+'</b>');
+                            if(action=='reg')
+                            {
+                                $('.feedback:odd').html('<b>'+data.message+'</b>');
+                            }
+                            else if(action=='log')
+                            {
+                                $('.feedback:even').html('<b>'+data.message+'</b>');
+                            }
                         }
                         else if(data.result=='success')
                         {
