@@ -1,0 +1,60 @@
+@font-face
+{
+    font-family: poppins;
+    src:url('../include/fonts/Poppins/Poppins-Medium.ttf')
+}
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: poppins;
+    color:white;
+}
+body
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height:100vh;
+    background-color: seagreen;
+    main
+    {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width:60%;
+        textarea
+        {
+            margin:3%;
+            background-color: transparent;
+            border:1px solid white;
+            margin:1%;
+            padding:1%;
+            width:100%;
+        }
+        div
+        {
+            margin:3%;
+        }
+        input[type="button"]
+        {
+            width:50%;
+            align-self: center;
+            background-color: transparent;
+            outline:none;
+            border:1px solid white;
+            padding:1%;
+            cursor: pointer;
+            transition-duration: 0.25s;
+        }
+        input[type="button"]:hover
+        {
+            border-radius:10px;
+            background-color: white;
+            color:seagreen;
+        }
+    }
+}

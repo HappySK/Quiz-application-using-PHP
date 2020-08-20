@@ -1,0 +1,9 @@
+$(document).ready(function(){
+    $('#tnc').scroll(function(){
+        scrollheight=$('#tnc').scrollTop();
+        if(scrollheight>500)
+        {
+            $('#agree').removeAttr('disabled');
+        }
+    });
+});

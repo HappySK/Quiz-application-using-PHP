@@ -55,13 +55,13 @@ $(document).ready(function(){
 
     function isNotEmpty(modal)
     {
-        isNotEmpty=true;
+        isnotEmpty=true;
         if(modal=='reg')
         {
             $('#signup').find('input').each(function(){
                 if($(this).val()=='')
                 {
-                    isNotEmpty=false;
+                    isnotEmpty=false;
                 }
             });
         }
@@ -70,11 +70,11 @@ $(document).ready(function(){
             $('#signin').find('input').each(function(){
                 if($(this).val()=='')
                 {
-                    isNotEmpty=false;
+                    isnotEmpty=false;
                 }
             });
         }
-        return isNotEmpty;
+        return isnotEmpty;
     }
 
     // The user data is retrieved using DOM and sent to the welcome.html using asynchronously
@@ -114,6 +114,7 @@ $(document).ready(function(){
                             else if(action=='log')
                             {
                                 $('.feedback:even').html('<b>'+data.message+'</b>');
+                                console.log(action);
                             }
                         }
                         else if(data.result=='success')
