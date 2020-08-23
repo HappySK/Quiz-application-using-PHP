@@ -4,7 +4,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: poppins;
+  color: white; }
 
 body {
   display: grid;
@@ -13,41 +15,77 @@ body {
   grid-template-rows: 1fr 10fr;
   height: 100vh; }
   body header {
-    background-color: sienna;
+    background-color: white;
     grid-area: header;
     display: flex;
     align-items: center;
     justify-content: space-evenly; }
+    body header h1 {
+      color: seagreen; }
+    body header input {
+      padding: 0.5%;
+      margin: 1%;
+      border: 1px solid white;
+      background-color: seagreen;
+      color: white;
+      cursor: pointer;
+      outline: none;
+      transition-duration: 0.2s;
+      border-radius: 10px; }
+      body header input:hover {
+        border-radius: 10px;
+        background-color: white;
+        color: seagreen; }
   body main {
-    background-color: slateblue;
+    background-color: seagreen;
     grid-area: main;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center; }
-    body main .question .options {
-      border: 1px solid seagreen;
-      color: white;
-      width: 70%; }
+    body main .question {
+      margin: 5%; }
+      body main .question .options {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        width: 70%; }
+        body main .question .options .border {
+          border: 1px solid white;
+          padding: 1%;
+          margin: 2%;
+          background-color: seagreen;
+          transition-duration: 0.2s;
+          width: 50%;
+          cursor: pointer; }
+    body main .footer {
+      display: flex; }
+      body main .footer input {
+        padding: 4%;
+        margin: 1%;
+        border: 1px solid white;
+        background-color: seagreen;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        transition-duration: 0.2s; }
+        body main .footer input:hover {
+          border-radius: 10px;
+          background-color: white;
+          color: seagreen; }
   body .sidebar {
-    background-color: springgreen;
+    background-color: seagreen;
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly; }
+    justify-content: flex-start; }
     body .sidebar marquee {
       height: 50%;
       border: 1px solid white;
       margin: 2%;
-      padding: 1%; }
-    body .sidebar .rank {
-      border: 1px solid white;
-      background-color: tan;
-      height: 50%;
-      width: 90%;
-      margin: 2%;
-      padding: 1%; }
+      padding: 1%;
+      text-align: center; }
 
 @media screen and (max-width: 450px) {
   body {

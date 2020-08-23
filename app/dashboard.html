@@ -9,24 +9,34 @@
 <body>
     <header>
         <h1>Welcome </h1>
-        <input type="button" value="Logout">
+        <input type="button" id="logout" value="Logout">
     </header>
     <main>
         <div class="question">
+            <h5>Question : <span></span> off 10</h5>
             <h1></h1>
-            <div class="options">
-                
+            <div class="options" id="opt">
+                <input type="radio" name="options" id="opt1" value="0" hidden>
+                <label for="opt1" id="zero" value="0"></label>
+                <input type="radio" name="options" id="opt2" value="1" hidden>
+                <label for="opt2" id="one" value="1"></label>
+                <input type="radio" name="options" id="opt3" value="2" hidden>
+                <label for="opt3" id="two" value="2"></label>
+                <input type="radio" name="options" id="opt4" value="3" hidden>
+                <label for="opt4" id="three" value="3"></label>
             </div>
         </div>
         <div class="footer">
-            <input type="button" value="Next Question">
+            <input type="button" value="Finish the Quiz" id="finish">
         </div>
     </main>
     <div class="sidebar">
-        <marquee behavior="" direction="down">Hello World</marquee>
-        <div class="rank">
-            Rank of the user
-        </div>
+        <h1>
+            LeaderBoard
+        </h1>
+        <marquee behavior="" direction="up">
+            <div id="contestants"></div>
+        </marquee>
     </div>
     <script src="../app/js/jquery.js"></script>
     <script src="../app/js/dashboard-main.js"></script>

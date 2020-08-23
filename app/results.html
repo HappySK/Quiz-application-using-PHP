@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="../app/css/result-style.css">
+</head>
+<body>
+    <div>
+        <h1>Thank you <span id="name"></span> !</h1>
+        <h5>You have successfully completed the quiz</h5>
+    </div>
+</body>
+<script>
+    document.getElementById('name').innerHTML=sessionStorage.getItem('firstname');
+</script>
+</html>

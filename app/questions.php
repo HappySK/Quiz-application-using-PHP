@@ -29,7 +29,7 @@
                     $record['option2']=$data->option2;
                     $record['option3']=$data->option3;    
                     $record['option4']=$data->option4;
-                    $record['result']=$data->result;
+                    $record['result']=$data->answer;
                     array_push($row,$record);
                 }
                 echo json_encode($row);

@@ -96,6 +96,8 @@
                                 if($validate->isRegistered($data->email,$data->pwd))
                                 {
                                     $data=$validate->getUserDetails($data->email,$data->pwd);
+                                    session_start();
+                                    $_SESSION['id']=$data['id'];
                                     echo json_encode($data);
                                 }
                                 else

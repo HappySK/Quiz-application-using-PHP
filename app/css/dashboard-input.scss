@@ -8,6 +8,24 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: poppins;
+    color:white;
+}
+@mixin btns($pad) {
+    padding:$pad;
+    margin:1%;
+    border:1px solid white;
+    background-color: seagreen;
+    color:white;
+    cursor: pointer;
+    outline:none;
+    transition-duration: 0.2s;
+    &:hover
+    {
+        border-radius: 10px;
+        background-color: white;
+        color:seagreen;
+    }
 }
 body
 {
@@ -20,15 +38,24 @@ body
     height:100vh;
     header
     {
-        background-color: sienna;
+        background-color: white;
         grid-area: header;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        h1
+        {
+            color:seagreen;
+        }
+        input
+        {
+            @include btns(0.5%);
+            border-radius: 10px;
+        }
     }
     main
     {
-        background-color: slateblue;
+        background-color: seagreen;
         grid-area: main;
         display: flex;
         flex-direction: column;
@@ -36,37 +63,49 @@ body
         align-items: center;
         .question
         {
+            margin:5%;
             .options
             {
-                border:1px solid seagreen;
+                display: flex;
+                flex-direction: column;
                 color:white;
                 width:70%;
+                .border
+                {
+                    border:1px solid white;
+                    padding:1%;
+                    margin:2%;
+                    background-color: seagreen;
+                    transition-duration: 0.2s;
+                    width:50%;
+                    cursor: pointer;
+                }
+            }
+        }
+        .footer
+        {
+           display: flex; 
+            input
+            {
+                @include btns(4%);
             }
         }
     }
     .sidebar
     {
-        background-color: springgreen;
+        background-color: seagreen;
         grid-area: sidebar;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         marquee
         {
             height:50%;
             border:1px solid white;
             margin:2%;
             padding:1%;
-        }
-        .rank
-        {
-            border:1px solid white;
-            background-color: tan;
-            height: 50%;
-            width:90%;
-            margin:2%;
-            padding:1%;
+            text-align: center;
         }
     }
 }

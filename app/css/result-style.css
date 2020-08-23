@@ -1,0 +1,23 @@
+@font-face {
+  font-family: poppins;
+  src: url("../include/fonts/Poppins/Poppins-Medium.ttf"); }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: poppins; }
+
+body {
+  background-color: seagreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
+  body div {
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 5%;
+    box-shadow: 0 0 5px black; }
+
+/*# sourceMappingURL=result-style.css.map */
