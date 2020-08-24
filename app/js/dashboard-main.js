@@ -1,6 +1,12 @@
 $(document).ready(function(){
     marks=0;
+
+    /* The Name is rendered dynamically */
+
     $('header > h1').append(sessionStorage.getItem('firstname'));
+    
+    /* The Leaderboard is retrieved using asynchronous get function */
+
     $.get('../app/results.php',{action:'getLeaderBoard'},function(data){
         $.each(data,function(index,item){
             var h4=document.createElement('h4');
@@ -9,12 +15,18 @@ $(document).ready(function(){
             document.getElementById('contestants').appendChild(h4);            
         });
     },'JSON');
+
+    /* The Logout button will remove all the sessionStorage elements and redirected to index page */
+
     $('#logout').click(function(){
         sessionStorage.removeItem('id');
         sessionStorage.removeItem('firstname');
         sessionStorage.removeItem('lastname');
         window.location.href='../public/index.html';
     });
+
+    /* The Asynchronous ability is implemented in order to get all the questions one by one */
+
     $.ajax({
         url:'../app/questions.php',
         data:{action:'getQuestions'},
@@ -46,6 +58,9 @@ $(document).ready(function(){
                     });
                 }
     });
+
+    /* This function renders the retrieved elements from the database */
+
     function putQuestions(data)
     {
         $('.question > h1').text(data[index].id+') '+data[index].questions);
@@ -55,4 +70,6 @@ $(document).ready(function(){
         $('label[for="opt4"]').text('d) '+data[index].option4).attr('value',data[index].option4);
         $('label').addClass('border');
     }
+
+    
 });

@@ -44,7 +44,7 @@
         }
         function getLeaderBoard()
         {
-            $sql="SELECT * FROM leaderboard";
+            $sql="SELECT * FROM leaderboard ORDER BY `score` DESC";
             $stmt=$this->conn->prepare($sql);
             if($stmt->execute())
             {
